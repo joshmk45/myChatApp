@@ -1,1 +1,1 @@
-# myChatApp
+# ChatApp
