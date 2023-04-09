@@ -35,5 +35,6 @@
         </section>
     </div>
     <script src="javascript/password_show_hide.js"></script>
+    <script src="javascript/signup.js"></script>
 </body>
 </html>

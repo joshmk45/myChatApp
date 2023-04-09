@@ -12,30 +12,30 @@
     <div class="wrapper">
         <section class="form signup">
             <header>Realtime Chat App</header>
-            <form action="#">
-                <div class="error-txt">This is an error message</div>
+            <form action="#" enctype="multipat/form-data">
+                <div class="error-txt">this is error message</div>
                 <div class="name-details">
                     <div class="field input">
                         <label for="First-Name">First Name</label>
-                        <input type="text" placeholder="First Name" id="First-Name">
+                        <input type="text" name="fname" placeholder="First Name" id="First-Name" required>
                     </div>
                     <div class="field input">
                         <label for="Last-Name">Last Name</label>
-                        <input type="text" placeholder="Last Name" id="Last-Name">
+                        <input type="text" name="lname" placeholder="Last Name" id="Last-Name" required >
                     </div>
                 </div>
                     <div class="field input">
                         <label for="Email">Email</label>
-                        <input type="email" placeholder=" Enter YourEmail" id="Email">
+                        <input type="email" name="email" placeholder=" Enter YourEmail" id="Email" required>
                     </div>
                     <div class="field input">
                         <label for="Password">Password</label>
-                        <input type="password" placeholder=" Enter new password" id="password">
+                        <input type="password" name="password" placeholder=" Enter new password" id="password" required>
                         <i class="fa fa-eye"></i>
                     </div>
                     <div class="field image">
                         <label for="Image">select Image</label>
-                        <input type="file"  id="Image">
+                        <input type="file" name="image" id="Image" required>
                     </div>
                     <div class="field button">
                         <input type="submit" placeholder="First Name" value="Continue to chat">
@@ -46,5 +46,6 @@
         </section>
     </div>
     <script src="./javascript/password_show_hide.js"></script>
+    <script src="./javascript/signup.js"></script>
 </body>
 </html>
