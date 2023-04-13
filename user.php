@@ -27,63 +27,30 @@ if(!isset($_SESSION['unique_id'])) {
             </header>
             <div class="search">
                 <span class="text">Select user to start chat</span>
-                <input type="text" placeholder="Enter name to search...">
+                <input type="text" name="item" placeholder="Enter name to search...">
                 <button><i class="fa fa-search"></i></button>
             </div>
             <div class="user-list">
-                <a href="">
-                    <div class="content">
-                        <img src="img.JPG" alt="">
-                        <div class="details">
-                            <span>ChatApp</span>
-                            <p style="color:#333;">This is test message...</p>
-                          </div>
-                    </div>
-                    <div class="status-dot"><i class="fa fa-circle"></i></div>
-                </a>
-                <a href="">
-                    <div class="content">
-                        <img src="img.JPG" alt="">
-                        <div class="details">
-                            <span>ChatApp</span>
-                            <p style="color:#333;">This is test message...</p>
-                          </div>
-                    </div>
-                    <div class="status-dot"><i class="fa fa-circle"></i></div>
-                </a>
-                <a href="">
-                    <div class="content">
-                        <img src="img.JPG" alt="">
-                        <div class="details">
-                            <span>ChatApp</span>
-                            <p style="color:#333;">This is test message...</p>
-                          </div>
-                    </div>
-                    <div class="status-dot"><i class="fa fa-circle"></i></div>
-                </a>
-                <a href="">
-                    <div class="content">
-                        <img src="img.JPG" alt="">
-                        <div class="details">
-                            <span>ChatApp</span>
-                            <p style="color:#333;">This is test message...</p>
-                          </div>
-                    </div>
-                    <div class="status-dot"><i class="fa fa-circle"></i></div>
-                </a>
-                <a href="">
-                    <div class="content">
-                        <img src="img.JPG" alt="">
-                        <div class="details">
-                            <span>ChatApp</span>
-                            <p style="color:#333;">This is test message...</p>
-                          </div>
-                    </div>
-                    <div class="status-dot"><i class="fa fa-circle"></i></div>
-                </a>
             </div>
         </section>
     </div>
     <script src="javascript/users.js"></script>
+    <script>
+        const userList=document.querySelector(".user .user-list");
+        setInterval(myfunction,500);
+        function myfunction(){
+        let req=new XMLHttpRequest();
+        req.open("GET","php/user.php",true);
+        req.onload=()=>{
+       if(req.readyState===XMLHttpRequest.DONE)
+       {
+        if(req.status===200){
+           userList.innerHTML=req.response;
+        }   
+      }
+   }
+   req.send();
+}
+    </script>
 </body>
 </html>
