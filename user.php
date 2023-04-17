@@ -35,22 +35,5 @@ if(!isset($_SESSION['unique_id'])) {
         </section>
     </div>
     <script src="javascript/users.js"></script>
-    <script>
-        const userList=document.querySelector(".user .user-list");
-        setInterval(myfunction,500);
-        function myfunction(){
-        let req=new XMLHttpRequest();
-        req.open("GET","php/user.php",true);
-        req.onload=()=>{
-       if(req.readyState===XMLHttpRequest.DONE)
-       {
-        if(req.status===200){
-           userList.innerHTML=req.response;
-        }   
-      }
-   }
-   req.send();
-}
-    </script>
 </body>
 </html>
