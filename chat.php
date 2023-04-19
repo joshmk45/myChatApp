@@ -31,7 +31,7 @@ if(!isset($_SESSION['unique_id'])){
             <form action="" method="POST" class="typing-area" autocomplete="OFF">
                 <input type="text"name="outgoing_id" value="<?php echo $_SESSION['unique_id']?>" >
                 <input type="text"name="incoming_id" value="<?php echo $user_id?>" >
-                <input type="text" name="message" placeholder="Type a message here...">
+                <input type="text" class="input-field"name="message" placeholder="Type a message here...">
                 <button><i class="fa fa-telegram"></i></button>
             </form>
         </section>

@@ -1,6 +1,6 @@
 const form=document.querySelector(".typing-area"),
       sendBtn=form.querySelector("button"),
-      inputField=form.querySelector("input"),
+      inputField=form.querySelector(".input-field"),
       chatArea=document.querySelector(".chat-area .chat-box");
 
       form.onsubmit=(e)=>{
@@ -15,6 +15,7 @@ function sendMsg(){
         if(req.readyState===XMLHttpRequest.DONE && req.status===200)
         {
             if(req.response=="success"){
+                
                 inputField.value="";
             }
         }
