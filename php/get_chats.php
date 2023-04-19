@@ -6,9 +6,11 @@ if(isset($_SESSION['unique_id'])){
     $incoming_id=mysqli_real_escape_string($conn,$_POST['incoming']);
     $output="";
 
-    $query="SELECT * FROM messages WHERE (outgoing_msg_id=$outgoing_id and incoming_msg_id=$incoming_id) OR (outgoing_msg_id=$incoming_id and incoming_msg_id=$outgoing_id)";
+    $query="SELECT * FROM messages
+    LEFT JOIN users ON users.users_id=messages.incoming_msg_id
+     WHERE ((`outgoing_msg_id`={$outgoing_id}) AND (`incoming_msg_id`={$incoming_id}))
+      OR ((`outgoing_msg_id`={$incoming_id}) AND (`incoming_msg_id`={$outgoing_id}))";
     $sql=mysqli_query($conn,$query);
-
      if(mysqli_num_rows($sql)>0){
        while($row=mysqli_fetch_assoc($sql)){
         if($row['outgoing_msg_id']===$outgoing_id){
@@ -20,7 +22,7 @@ if(isset($_SESSION['unique_id'])){
         }
         else{
              $output.='<div class="chat incoming">
-             <img src="php/uploadedImages/" alt="">
+             <img src="php/uploadedImages/'.$row['image'].'" alt="">
              <div class="details">
                  <p>'.$row['msg'].'</p>
              </div>

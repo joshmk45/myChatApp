@@ -28,30 +28,14 @@ if(!isset($_SESSION['unique_id'])){
                 
                 
             </div>
-            <form action="" method="POST" class="typing-area">
-                <input type="text"name="outgoing" value="<?php echo $_SESSION['unique_id']?>" hidden>
-                <input type="text"name="incoming" value="<?php echo $user_id?>" hidden>
+            <form action="" method="POST" class="typing-area" autocomplete="OFF">
+                <input type="text"name="outgoing_id" value="<?php echo $_SESSION['unique_id']?>" >
+                <input type="text"name="incoming_id" value="<?php echo $user_id?>" >
                 <input type="text" name="message" placeholder="Type a message here...">
                 <button><i class="fa fa-telegram"></i></button>
             </form>
         </section>
     </div>
     <script src="javascript/chat.js"></script>
-    <script>
-setInterval(getChats,500);
-function getChats(){
- let req=new XMLHttpRequest();
- req.open("POST","php/get_chats.php",true);
- req.onreadystatechange=processRequest;
- function processRequest(){
-    if(req.readyState===XMLHttpRequest.DONE && req.status===200){
-        chatArea.innerHTML=req.response;
-
-    }
- }
- let formdata=new FormData(form);
- req.send(formdata);
-}
-    </script>
 </body>
 </html>
